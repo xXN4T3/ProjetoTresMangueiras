@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTM - Doação</title>
+    <link rel="stylesheet" href="styles3.css">
+    <link rel="icon" href="icone.png" type="image/x-icon">
+
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="index.html#sobre-nos">Sobre Nós</a></li>
+            <li><a href="index.html#formas-ajudar1">Formas de Ajudar</a></li>
+            <li><a href="indexhtml#galeria">Galeria</a></li>
+            <li><a href="index.html#localizacao">Localização</a></li>
+          </ul>
+        </nav>
+      </header>
+
+    <main>
+        <section id="doacao" class="doacao">
+            <div class="content">
+                <div class="text">
+                    <h1>Doação</h1>
+                    <p>
+                        Ajude a transformar vidas! Ao doar para nossa ONG, você contribui diretamente para projetos que
+                        promovem dignidade, educação e alimentação para famílias em situação de vulnerabilidade. 
+                        <br><br>
+                        Para doar, você pode escolher entre duas opções:
+                        <br>
+                        1 - Abra o aplicativo do seu banco, selecione a opção PIX, escolha “Pagar com QR Code” e aponte a
+                        câmera para o código ao lado. <br>
+                        2 - Ou, se preferir, clique <a href="#" onclick="copiarPix()">aqui</a> para copiar e colar a nossa chave PIX diretamente no seu
+                        aplicativo bancário.<br>
+                        Em poucos segundos, você ajuda a fazer a diferença!
+                    </p>
+                </div>
+                <div class="image">
+                    <img src="qrcodeong.jpg" alt="Atividades do projeto">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Projeto Três Mangueiras. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function copiarPix() {
+            const chavePix = "00020126580014BR.GOV.BCB.PIX01360dfb6d57-dd5e-41fb-a4b9-baa470ff1de25204000053039865802BR5925Leiria Regina de Azevedo 6009SAO PAULO62140510qtTyW9XyMr630413FF";
+            navigator.clipboard.writeText(chavePix)
+                .then(() => {
+                    alert("Chave PIX copiada para a área de transferência!");
+                })
+                .catch(err => {
+                    alert("Falha ao copiar a chave PIX. Tente novamente.");
+                    console.error("Erro ao copiar para a área de transferência:", err);
+                });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,442 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Header */
+header {
+  padding: 20px;
+  background-color: #108D57;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  align-items: center; /* Alinha os itens verticalmente */
+  list-style: none;
+  gap: 90px; /* Adiciona espaçamento entre os itens */
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Garante que a lista ocupe todo o espaço disponível */
+}
+
+nav ul li {
+  flex-shrink: 0; /* Impede que os itens encolham quando a tela é redimensionada */
+}
+
+nav ul li a {
+  font-family: "Poppins", serif;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+  color: #ffffff; /* Cor branca para os links */
+  font-size: 25px; /* Tamanho da fonte */
+  font-weight: 500;
+}
+
+nav ul li a:hover{
+  cursor: pointer;
+}
+
+/* Estilos gerais para a seção */
+.section-content {
+  display: flex; /* Cria o layout flexbox */
+  height: 90vh; /* Ocupa 90% da altura da tela */
+  position: relative; /* Necessário para o posicionamento do fundo e conteúdo */
+}
+
+.background-image {
+  position: absolute; /* Posiciona a imagem como fundo */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('principal.jpg'); /* Define a imagem como fundo */
+  background-size: cover; /* Faz com que a imagem cubra toda a área da section */
+  background-position: center; /* Centraliza a imagem no fundo */
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+  opacity: 0.1; /* Define a opacidade da imagem de fundo */
+  z-index: -1; /* Coloca a imagem atrás do conteúdo */
+}
+
+.left {
+  width: 40%; /* 40% da largura da tela */
+  display: flex;
+  justify-content: center; /* Centraliza a imagem horizontalmente */
+  align-items: center; /* Centraliza a imagem verticalmente */
+}
+
+.right {
+  width: 60%; /* 60% da largura da tela */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Alinha o conteúdo verticalmente */
+  padding: 0 2rem; /* Espaçamento lateral */
+}
+
+.image-left {
+  width: 70%; /* A imagem ocupa toda a largura da coluna */
+  height: auto; /* Mantém a proporção da imagem */
+  object-fit: cover; /* A imagem cobre toda a área sem distorcer */
+}
+
+#tituloP {
+  font-family: "Poppins", serif;
+  font-weight: 900;
+  font-size: 50px;
+  color: #108D57;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.6; /* Espaçamento entre linhas */
+}
+
+
+
+/* Sobre Nós */
+.sobre-nos {
+  height: 80vh;
+  width: 100%;
+  background-color: #108D57; /* Novo fundo verde */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sobre-nos .content {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+}
+
+#tituloSN{
+  font-family: "Poppins", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40px;
+
+}
+
+.sobre-nos .text {
+  flex: 2;
+  line-height: 1.8;
+  color: white;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.sobre-nos .image {
+  flex: 1;
+  max-width: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Animação de "respiração" */
+.sobre-nos .image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: breathing 6s ease-in-out infinite;
+}
+
+@keyframes breathing {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+}
+
+/* Formar de ajudar */
+}
+.formas-ajudar {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 40px 20px;
+  min-height: 600px;
+}
+
+#titutloFA{
+  font-family: "Poppins", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40px;
+  color: #108D57;
+}
+
+#textoFA{
+  line-height: 1.8;
+  color: rgb(0, 0, 0);
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #108D57; /* Novo fundo verde */
+  color: #ffffff;
+  margin-top: 50px;
+  padding: 10px;
+  border-radius: 25px;
+  width: 20%;
+  min-width: 250px;
+  min-height: 450px; /* Define uma altura mínima */
+  display: flex;      /* Adiciona Flexbox */
+  flex-direction: column; /* Coloca os itens em coluna */
+}
+
+.card h3, .card p {
+  flex-grow: 1; /* Faz o espaço entre h3, p e o botão se expandir */
+}
+
+.card h3{
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 23px;
+}
+
+.card p{
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.card-icon {
+  display: block;         /* Para garantir que a imagem seja exibida como um bloco */
+  margin: 0 auto 15px;   /* Centraliza a imagem e adiciona espaço abaixo dela */
+  width: 50px;           /* Defina a largura desejada para a imagem */
+  height: auto;          /* A altura será ajustada automaticamente */
+}
+
+.card a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.card button {
+  background-color: #108D57;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 50px;
+  margin-top: auto; /* Isso vai empurrar o botão para o fundo do card */
+  width: 100%;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.card button:hover {
+  background-color: #ffffff;
+  color: #108D57;
+}
+
+.card-icon {
+  display: block;         /* Para garantir que a imagem seja exibida como um bloco */
+  margin: 0 auto 15px;   /* Centraliza a imagem e adiciona espaço abaixo dela */
+  width: 50px;           /* Defina a largura desejada para a imagem */
+  height: auto;          /* A altura será ajustada automaticamente */
+}
+
+/* TESTE */
+.galeria {
+  text-align: center;
+  padding: 2rem 0;
+  height: 50vh;
+  background-color: #108D57;
+}
+
+.galeria-titulo {
+  font-family: "Poppins", serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.galeria-imagens {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.galeria-imagens img {
+  width: 100%;
+  max-width: 300px;
+  max-height:300px;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
+}
+
+.galeria-imagens img:hover {
+  transform: scale(1.10); /* Aumenta levemente o tamanho da imagem */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra ao redor */
+}
+
+
+
+/* Doações */
+
+.doacoes {
+  text-align: center;
+  background-color: #108D57;
+  height: 700px; /* ou uma altura fixa, como 600px */
+  width: 100%;
+}
+
+.doacoes-content {
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%; /* Isso agora usará 100% da altura de .doacoes */
+  padding: 0px 0px; /* Espaço interno */
+  box-sizing: border-box;
+}
+
+.separacao1{
+  width: 50%;
+  height: 100%;
+  background-color: #ececec;
+}
+
+form {
+  background-color: #108D57;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}
+
+h2.tituloD{
+  color: white;
+  font-family: "Poppins", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40px;
+}
+
+form label {
+  display: flex;
+  padding-left: 100px;
+  padding-top:20px;
+  padding-left: 130px;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}
+
+form input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  border: 2px solid #000000;
+}
+
+#btnED {
+  border: 2px solid #000000;
+  background-color: white;
+  border-radius: 50px;
+  width: 20%;
+  height: 6%;
+  color: #108D57;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}
+
+#btnED:hover{
+  cursor: pointer;
+}
+
+.separacao3{
+  width: 50%;
+  height: 100%;
+  background-color: #ff0000;
+}
+
+#fotoDOA{
+  width: 100%;
+  height: 100%;
+}
+
+
+#localizacao {
+  text-align: center;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 40px 20px;
+}
+
+h2.tituloLOC{
+  color: #108D57;
+  font-family: "Poppins", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40px;
+}
+
+.mapa {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+iframe{
+  width: 80%;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #108D57;
+  color: white;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}

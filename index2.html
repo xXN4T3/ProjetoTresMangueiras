@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="scripts.js"></script>
+  <title>PTM - Formulário</title>
+  <link rel="stylesheet" href="styles2.css">
+  <link rel="icon" href="icone.png" type="image/x-icon">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html#sobre-nos">Sobre Nós</a></li>
+        <li><a href="index.html#formas-ajudar1">Formas de Ajudar</a></li>
+        <li><a href="index.html#galeria">Galeria</a></li>
+        <li><a href="index.html#localizacao">Localização</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="doacao" class="doacao-section">
+      <div class="form-container">
+        <h2>Faça uma Doação</h2>
+        <form onsubmit="return validarFormulario()">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required>
+    
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required>
+    
+          <label for="telefone">Telefone:</label>
+          <input type="tel" id="telefone" name="telefone" required>
+    
+          <label for="valor">Valor da Doação:</label>
+          <input type="number" id="valor" name="valor" min="1" required>
+    
+          <button type="submit">Doar</button>
+          
+          <!-- Elemento para exibir mensagens de erro -->
+          <p id="mensagemErro" style="color: red;"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Projeto Três Mangueiras. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    function validarFormulario() {
+      // Obter os valores dos campos
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const telefone = document.getElementById('telefone').value.trim();
+      const valor = parseFloat(document.getElementById('valor').value.trim());
+
+      const mensagemErro = document.getElementById('mensagemErro');
+  
+      // Limpar mensagem de erro
+      mensagemErro.textContent = "";
+  
+      // Verificar se o nome, e-mail e telefone foram preenchidos
+      if (!nome || !email || !telefone) {
+        mensagemErro.textContent = "Por favor, preencha todos os campos obrigatórios.";
+        return false;
+      }
+  
+      // Verificar formato do e-mail
+      const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!regexEmail.test(email)) {
+        mensagemErro.textContent = "Por favor, insira um e-mail válido.";
+        return false;
+      }
+  
+      // Verificar se o valor é um número positivo
+      if (isNaN(valor) || valor <= 0) {
+        mensagemErro.textContent = "Por favor, insira um valor positivo para doação.";
+        return false;
+      }
+  
+      const dadosDoacao = {
+        nome: nome,
+        email: email,
+        telefone: telefone,
+        valor: valor
+      };
+
+      // Realizar a requisição POST para a API
+      fetch('http://localhost:5000/public/doacao', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(dadosDoacao)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erro ao enviar dados para a API');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Sucesso! Exibir mensagem de sucesso ou redirecionar
+        alert('Doação realizada com sucesso!');
+        // Se tudo estiver correto, o formulário será enviado e redirecionado
+        window.location.href = "index3.html";
+      })
+      .catch(error => {
+        // Tratar erro
+        mensagemErro.textContent = "Erro ao realizar a doação. Tente novamente mais tarde.";
+        console.error('Erro na requisição:', error);
+      });
+
+      return false;  // Impede o envio do formulário tradicional
+    }
+  </script>
+
+</body>
+
+</html>

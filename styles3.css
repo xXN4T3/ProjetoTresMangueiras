@@ -1,0 +1,174 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    background-color: #108D57;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    /* Centraliza os itens horizontalmente */
+    align-items: center;
+    /* Alinha os itens verticalmente */
+    list-style: none;
+    gap: 90px;
+    /* Adiciona espaçamento entre os itens */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* Garante que a lista ocupe todo o espaço disponível */
+}
+
+nav ul li {
+    flex-shrink: 0;
+    /* Impede que os itens encolham quando a tela é redimensionada */
+}
+
+nav ul li a {
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    color: #ffffff;
+    /* Cor branca para os links */
+    font-size: 25px;
+    /* Tamanho da fonte */
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    cursor: pointer;
+}
+
+
+/* Main */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Sobre Nós */
+.doacao {
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.doacao .content {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+}
+
+h1 {
+    color: #108D57;
+}
+
+.doacao .text {
+    flex: 2;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #000000;
+}
+
+.doacao a {
+    color: #108D57;
+}
+
+.doacao .image {
+    flex: 1;
+    max-width: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Animação de "respiração" */
+.doacao .image img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #108D57;
+    color: white;
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sobre-nos .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sobre-nos .text {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .sobre-nos .image {
+        max-width: 300px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    header .logo img {
+        width: 50px;
+    }
+
+    .sobre-nos .text {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+}
